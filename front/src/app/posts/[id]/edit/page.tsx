@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import { use } from "react";
 
-import usePost from "../_hooks/usePost";
+import usePost from "@/domain/post/hooks/usePost";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();

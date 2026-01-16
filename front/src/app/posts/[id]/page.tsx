@@ -2,9 +2,10 @@
 
 import { use } from "react";
 
+import usePost from "@/domain/post/hooks/usePost";
+
 import PostCommentWriteAndList from "./_components/PostCommentWriteAndList";
 import PostInfo from "./_components/PostInfo";
-import usePost from "./_hooks/usePost";
 import usePostComments from "./_hooks/usePostComments";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
