@@ -2,10 +2,14 @@
 
 import { useRouter } from "next/navigation";
 
+import { use } from "react";
+
+import { AuthContext } from "@/app/ClientLayout";
 import client from "@/global/backend/client";
 
 export default function Page() {
   const router = useRouter();
+  const authState = use(AuthContext);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -59,6 +63,9 @@ export default function Page() {
           alert(res.error.msg);
           return;
         }
+
+        authState?.setLoginMember(res.data.data.item);
+
         alert(res.data.msg);
         router.replace(`/`);
       });
